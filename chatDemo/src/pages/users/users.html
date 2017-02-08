@@ -1,0 +1,52 @@
+<!-- <ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Users</ion-title>
+        <ion-buttons end>
+            <ion-spinner color="light" *ngIf="!(users | async)"></ion-spinner>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header> -->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Users</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+   <!--  <ion-list>
+      <span *ngFor="let user of items | async">
+        <a ion-item (click)="openChat(user.$key)" *ngIf="user.$key !== uid">
+             <ion-avatar item-left>
+                <img *ngIf="!user.picture" src="assets/images/default.jpg">
+                <img *ngIf="user.picture" src="{{user.picture}}">
+             </ion-avatar>
+             <h2>{{user.email}}</h2>
+        </a>
+      </span>
+    </ion-list> -->
+
+    <ion-card *ngFor="let detail of postDiscriptionNew" (click)="openChat(detail.id)">
+  <ion-card-content>
+
+ <ion-item >
+   <p style="text-align: center">
+  <img  [src]="detail.base64Image" *ngIf="detail.base64Image" align="middle" class="imgclass" style="width : 100px; height : 100px; border-radius: 100px;" (click)="doGetPicture(profile)" />
+   </p>
+  
+ </ion-item>
+   <!-- <ion-avatar item-left>
+                <img  src="{{detail.base64Image}}">
+             </ion-avatar> -->
+
+<!--        <div item-left > Discription {{ detail.shortDisc }}</div>
+ -->     
+
+
+ <h2>{{detail.username}}</h2> 
+     </ion-card-content>
+   </ion-card>
+</ion-content>
